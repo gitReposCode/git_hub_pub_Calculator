@@ -1,19 +1,14 @@
-def not_in(sign):
-    return sign != '+' and sign != '-' and sign != '*' and sign != '/' and sign != '^'
+str_inp = input("Введите математическое действие: ") # действия: + - / * ^
 
-# Блок ввода исходных данных
-num_1 = int(input("Введите 1-ое целое число: "))
-sign = input("Введите знак: ")
-while not_in(sign):
-    print("Оператор не поддерживается!")
-    sign = input("Введите знак: ")
-num_2 = int(input("Введите 2-ое целое число: "))
-if sign == '/':
-    while num_2 == 0:
-        print("Деление на ноль не поддерживается!")
-        num_2 = int(input("Введите 2-ое число отличное от нуля: "))
+ind_sign = 0
+for i in range(len(str_inp)):
+    if str_inp[i] in "+-*/^":
+        ind_sign = i
 
-# Блок вычислений
+sign = str_inp[ind_sign]
+num_1 = float(str_inp[0:ind_sign])
+num_2 = float(str_inp[(ind_sign + 1):len(str_inp)])
+
 if sign == '+':
     res = num_1 + num_2
 elif sign == '-':
@@ -21,9 +16,8 @@ elif sign == '-':
 elif sign == '*':
     res = num_1 * num_2
 elif sign == '/':
-    res = num_1 // num_2
+    res = num_1 / num_2
 else:
     res = num_1 ** num_2
 
-# Блок вывода результатов
 print(f"{num_1} {sign} {num_2} = {res}", end='')
