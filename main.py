@@ -6,18 +6,22 @@ for i in range(len(str_inp)):
         ind_sign = i
 
 sign = str_inp[ind_sign]
-num_1 = float(str_inp[0:ind_sign])
-num_2 = float(str_inp[(ind_sign + 1):len(str_inp)])
+num_1 = float(str_inp[:ind_sign])
+num_2 = float(str_inp[(ind_sign + 1):])
 
-if sign == '+':
-    res = num_1 + num_2
-elif sign == '-':
-    res = num_1 - num_2
-elif sign == '*':
-    res = num_1 * num_2
-elif sign == '/':
-    res = num_1 / num_2
-else:
-    res = num_1 ** num_2
+match sign:
+    case  '+':
+        res = num_1 + num_2
+    case  '-':
+        res = num_1 - num_2
+    case  '*':
+        res = num_1 * num_2
+    case  '/':
+        res = num_1 / num_2
+    case  '^':
+        res = num_1 ** num_2
+    case  '_':
+        print("Данный оператор не поддерживается!")
+        exit(0)
 
 print(f"{num_1} {sign} {num_2} = {res}", end='')
