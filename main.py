@@ -1,4 +1,4 @@
-str_inp = input("Введите математическое действие: ") # действия: + - / * ^
+str_inp = input("Введите математическое действие: ")  # действия: + - / * ^
 
 ind_sign = 0
 for i in range(len(str_inp)):
@@ -10,17 +10,17 @@ num_1 = float(str_inp[:ind_sign])
 num_2 = float(str_inp[(ind_sign + 1):])
 
 match sign:
-    case  '+':
+    case '+':
         res = num_1 + num_2
-    case  '-':
+    case '-':
         res = num_1 - num_2
-    case  '*':
+    case '*':
         res = num_1 * num_2
-    case  '/':
+    case '/':
         res = num_1 / num_2
-    case  '^':
+    case '^':
         res = num_1 ** num_2
-    case  '_':
+    case '_':
         print("Данный оператор не поддерживается!")
         exit(0)
 
